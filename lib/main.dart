@@ -10,6 +10,17 @@ class CheckConnectivityApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    return ValueListenableBuilder(valueListenable: valueListenable, builder: (context, value, child) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Check Connectivity App',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        ),
+        home: value ? NoNetworkScreen() : const HomeScreen(),
+      );
+    });
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Check Connectivity App',
